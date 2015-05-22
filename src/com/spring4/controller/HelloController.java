@@ -1,0 +1,28 @@
+package com.spring4.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+
+
+public class HelloController {
+
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET) // GET method
+	public String printWelcome(ModelMap model)
+	{
+		model.addAttribute("message", "hello World");
+		return "hello"; //Name of View
+	}
+	//prefix+"hello"+suffix = /WEB-INF/hello.jsp
+
+	@RequestMapping(value = "/welcome/{username}", method = RequestMethod.GET)
+	public String printUsername(@PathVariable("username") String username, ModelMap model) {
+		model.addAttribute("message", username);
+	    return "hello";
+	}
+
+}
