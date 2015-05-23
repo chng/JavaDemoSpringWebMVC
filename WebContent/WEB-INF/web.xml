@@ -2,49 +2,22 @@
 <!-- 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
 -->
-<web-app
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns="http://hahahaha/" 
-	xmlns:web="http://hahahahahaha/" 
-	xsi:schemaLocation="http://hahahahaha/ hohohohohoho" 
-	id="WebApp_ID" version="3.0">
-	
-	<!-- 
-	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list>
-	<error-page>
-	</error-page>
-	-->
-	<!-- 设置监听器 -->
-
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	
-	<servlet>
-		<servlet-name>mvc-dispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-        <init-param>
-			<description>加载/WEB-INF/目录下的所有XML作为Spring MVC的配置文件</description>
-	    	<param-name>contextConfigLocation</param-name>
-	    	<param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
-        </init-param>
-    </servlet>
-	<!-- 设置servlet的访问方式 -->
-	<!-- 遇所有的url，都启用DispatcherServket -->
-    <servlet-mapping>
-		<servlet-name>mvc-dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-    
-	<!-- 设置bean定义文件的位置和名称 
-	<context-param>
-    	<param-name>contextConfigLocation</param-name>
-    	<param-value>
-	    	/WEB-INF/mvc-dispatcher-servlet.xml
-	    </param-value>
-	</context-param>
-	-->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hahahaha/" xmlns:web="http://hahahahahaha/" xmlns:web_1="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://hahahahaha/ hohohohohoho http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee" id="WebApp_ID" version="3.0">
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>mvc-dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <description>加载/WEB-INF/beans/目录下的所有XML作为Spring MVC的配置文件</description>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/beans/*.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mvc-dispatcher</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
 </web-app>
